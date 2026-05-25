@@ -1,0 +1,104 @@
+﻿@page "/todo"
+@rendermode InteractiveServer
+
+<PageTitle>To-Do List</PageTitle>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header bg-dark text-white text-center">
+                    <h3 class="mb-0">To-Do List</h3>
+                </div>
+
+                <div class="card-body">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Add a new task..."
+                               @bind="newTaskTitle" />
+                        <button class="btn btn-primary" @onclick="AddTask">Add Task</button>
+                    </div>
+
+                    <ul class="list-group">
+                        @foreach (var task in todos)
+                        {
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <div class="d-flex align-items-center flex-grow-1">
+                                    <input type="checkbox" class="form-check-input me-2" @bind="task.IsDone" />
+                                    
+                                    @if (task.IsEditing)
+                                    {
+                                        <input class="form-control form-control-sm d-inline-block w-auto" @bind="task.Title" />
+                                    }
+                                    else
+                                    {
+                                        <span style="text-decoration: @(task.IsDone ? "line-through" : "none")">@task.Title</span>
+                                    }
+                                </div>
+
+                                <div class="btn-group">
+                                    @* FIXED BUTTON LOGIC BELOW *@
+                                    @if (task.IsEditing)
+                                    {
+                                        <button class="btn btn-sm btn-success" @onclick="() => task.IsEditing = false">Save</button>
+                                    }
+                                    else
+                                    {
+                                        <button class="btn btn-sm btn-warning" @onclick="() => task.IsEditing = true">Edit</button>
+                                    }
+                                    <button class="btn btn-sm btn-danger" @onclick="() => DeleteTask(task)">Delete</button>
+                                </div>
+                            </li>
+                        }
+                    </ul>
+
+                    @if (todos.Count > 0)
+                    {
+                        <div class="mt-4 pt-3 border-top text-center">
+                            @{
+                                var doneCount = todos.Count(t => t.IsDone);
+                            }
+                            @if (doneCount > 0)
+                            {
+                                <div class="p-2 bg-light rounded border">
+                                    <span class="text-success fw-bold">
+                                        🎉 You have completed @doneCount of @todos.Count tasks!
+                                    </span>
+                                </div>
+                            }
+                            else
+                            {
+                                <small class="text-muted">No tasks completed yet. Keep at it!</small>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string newTaskTitle = "";
+    private List<ToDoItem> todos = new List<ToDoItem>();
+
+    private void AddTask()
+    {
+        if (!string.IsNullOrWhiteSpace(newTaskTitle))
+        {
+            todos.Add(new ToDoItem { Title = newTaskTitle });
+            newTaskTitle = "";
+        }
+    }
+
+    private void DeleteTask(ToDoItem item)
+    {
+        todos.Remove(item);
+    }
+
+    public class ToDoItem
+    {
+        public string Title { get; set; } = "";
+        public bool IsDone { get; set; } = false;
+        public bool IsEditing { get; set; } = false;
+    }
+}S

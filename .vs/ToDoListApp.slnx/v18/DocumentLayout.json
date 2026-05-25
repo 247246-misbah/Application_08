@@ -1,0 +1,85 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\ToDoListApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8CA0E73A-6F17-179A-C7C0-79798FB16066}|ToDoListApp.csproj|d:\\todolistapp\\components\\pages\\todo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8CA0E73A-6F17-179A-C7C0-79798FB16066}|ToDoListApp.csproj|solutionrelative:components\\pages\\todo.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CA0E73A-6F17-179A-C7C0-79798FB16066}|ToDoListApp.csproj|d:\\todolistapp\\components\\models\\todoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8CA0E73A-6F17-179A-C7C0-79798FB16066}|ToDoListApp.csproj|solutionrelative:components\\models\\todoitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CA0E73A-6F17-179A-C7C0-79798FB16066}|ToDoListApp.csproj|d:\\todolistapp\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{8CA0E73A-6F17-179A-C7C0-79798FB16066}|ToDoListApp.csproj|solutionrelative:components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8CA0E73A-6F17-179A-C7C0-79798FB16066}|ToDoListApp.csproj|d:\\todolistapp\\todolistapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{8CA0E73A-6F17-179A-C7C0-79798FB16066}|ToDoListApp.csproj|solutionrelative:todolistapp.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ToDoListApp.csproj",
+              "DocumentMoniker": "D:\\ToDoListApp\\ToDoListApp.csproj",
+              "RelativeDocumentMoniker": "ToDoListApp.csproj",
+              "ToolTip": "D:\\ToDoListApp\\ToDoListApp.csproj",
+              "RelativeToolTip": "ToDoListApp.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2026-05-08T05:45:06.886Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "D:\\ToDoListApp\\Components\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "Components\\Layout\\NavMenu.razor",
+              "ToolTip": "D:\\ToDoListApp\\Components\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "Components\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-08T05:35:06.291Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ToDoItem.cs",
+              "DocumentMoniker": "D:\\ToDoListApp\\Components\\Models\\ToDoItem.cs",
+              "RelativeDocumentMoniker": "Components\\Models\\ToDoItem.cs",
+              "ToolTip": "D:\\ToDoListApp\\Components\\Models\\ToDoItem.cs",
+              "RelativeToolTip": "Components\\Models\\ToDoItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-08T05:34:21.034Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Todo.razor",
+              "DocumentMoniker": "D:\\ToDoListApp\\Components\\Pages\\Todo.razor",
+              "RelativeDocumentMoniker": "Components\\Pages\\Todo.razor",
+              "ToolTip": "D:\\ToDoListApp\\Components\\Pages\\Todo.razor",
+              "RelativeToolTip": "Components\\Pages\\Todo.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-05-08T05:33:33.626Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

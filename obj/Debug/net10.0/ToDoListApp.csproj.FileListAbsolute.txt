@@ -170,3 +170,11 @@ D:\ToDoListApp\obj\Debug\net10.0\refint\ToDoListApp.dll
 D:\ToDoListApp\obj\Debug\net10.0\ToDoListApp.pdb
 D:\ToDoListApp\obj\Debug\net10.0\ToDoListApp.genruntimeconfig.cache
 D:\ToDoListApp\obj\Debug\net10.0\ref\ToDoListApp.dll
+D:\ToDoListApp\obj\Debug\net10.0\ToDoListApp.sourcelink.json
+D:\ToDoListApp\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.dll
+D:\ToDoListApp\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\ToDoListApp\bin\Debug\net10.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\ToDoListApp\bin\Debug\net10.0\MySqlConnector.dll
+D:\ToDoListApp\bin\Debug\net10.0\Pomelo.EntityFrameworkCore.MySql.dll
+D:\ToDoListApp\obj\Debug\net10.0\ToDoListApp.csproj.AssemblyReference.cache
+D:\ToDoListApp\obj\Debug\net10.0\ToDoList.5ED812B2.Up2Date

@@ -1,5 +1,9 @@
 ﻿@page "/todo"
 @rendermode InteractiveServer
+@using ToDoListApp.Data
+@using ToDoListApp.Models
+@using Microsoft.EntityFrameworkCore
+@inject AppDbContext DbContext
 
 <PageTitle>To-Do List</PageTitle>
 
@@ -8,7 +12,7 @@
         <div class="col-md-6">
             <div class="card shadow-lg">
                 <div class="card-header bg-dark text-white text-center">
-                    <h3 class="mb-0">To-Do List</h3>
+                    <h3 class="mb-0"> To-Do List</h3>
                 </div>
 
                 <div class="card-body">
@@ -23,7 +27,8 @@
                         {
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <div class="d-flex align-items-center flex-grow-1">
-                                    <input type="checkbox" class="form-check-input me-2" @bind="task.IsDone" />
+                                    <input type="checkbox" class="form-check-input me-2"
+                                           @bind="task.IsDone" @bind:after="() => UpdateTaskStatus(task)" />
                                     
                                     @if (task.IsEditing)
                                     {
@@ -36,10 +41,9 @@
                                 </div>
 
                                 <div class="btn-group">
-                                    @* FIXED BUTTON LOGIC BELOW *@
                                     @if (task.IsEditing)
                                     {
-                                        <button class="btn btn-sm btn-success" @onclick="() => task.IsEditing = false">Save</button>
+                                        <button class="btn btn-sm btn-success" @onclick="() => SaveEditedTitle(task)">Save</button>
                                     }
                                     else
                                     {
@@ -81,24 +85,52 @@
     private string newTaskTitle = "";
     private List<ToDoItem> todos = new List<ToDoItem>();
 
-    private void AddTask()
+    // READ operation on component setup
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadTasks();
+    }
+
+    private async Task LoadTasks()
+    {
+        todos = await DbContext.ToDoItems.ToListAsync();
+    }
+
+    // CREATE Action
+    private async Task AddTask()
     {
         if (!string.IsNullOrWhiteSpace(newTaskTitle))
         {
-            todos.Add(new ToDoItem { Title = newTaskTitle });
+            var newItem = new ToDoItem { Title = newTaskTitle, IsDone = false };
+            DbContext.ToDoItems.Add(newItem);
+            await DbContext.SaveChangesAsync(); // Writes record to MySQL
+            
             newTaskTitle = "";
+            await LoadTasks(); // Force pull fresh database state
         }
     }
 
-    private void DeleteTask(ToDoItem item)
+    // UPDATE Action (Checkbox)
+    private async Task UpdateTaskStatus(ToDoItem item)
     {
-        todos.Remove(item);
+        DbContext.ToDoItems.Update(item);
+        await DbContext.SaveChangesAsync();
     }
 
-    public class ToDoItem
+    // UPDATE Action (Text Edit)
+    private async Task SaveEditedTitle(ToDoItem item)
     {
-        public string Title { get; set; } = "";
-        public bool IsDone { get; set; } = false;
-        public bool IsEditing { get; set; } = false;
+        item.IsEditing = false;
+        DbContext.ToDoItems.Update(item);
+        await DbContext.SaveChangesAsync();
+        await LoadTasks();
     }
-}S
+
+    // DELETE Action
+    private async Task DeleteTask(ToDoItem item)
+    {
+        DbContext.ToDoItems.Remove(item);
+        await DbContext.SaveChangesAsync(); // Drops row out of MySQL table locally
+        await LoadTasks();
+    }
+}
